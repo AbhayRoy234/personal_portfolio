@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<centre>
+{% load static %}
+
+{% block content %}
+
+<!--<a href="{% url 'blog:details' blog.id %}">-->
+<centre><h1>{{ blog.title }}</h1></centre>
+
+<!--<h5 class="text-center text-muted mb-5">{{ blog.date|date:'F jS Y' }}</h5>-->
+
+{{ blog.description|safe }}
+
+{% endblock %}
+</body>
+</html>

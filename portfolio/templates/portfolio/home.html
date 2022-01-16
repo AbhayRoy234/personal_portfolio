@@ -1,22 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<link>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="home.css">
+
 </head>
-<body>
+<body >
 This is the home page
+<!--This is staring of the navbar-->
+<ul class="navbar">
+  <li><a class="active" href="#home">Home</a></li>
+  <li><a href="#news">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="{%url 'blog:all_blog'%}">Blog</a></li>
+</ul>
+<!--This is end  of the navbar-->
 {% load static %}
+<div class="static_main_image">
+<img src="{% static 'portfolio/abhay_antu.jpg' %}" height="500" width="800" style="margin-left:20%">
+</div>
 <!--<img src="{% static 'portfolio/abhay_antu.jpg' %}" height="100">-->
-<img src="{% static 'portfolio/abhay_antu.jpg' %}" height="200">
-{% for project in projects %}
-<h1>{{project.title}}</h1>
-<br>{{project.description}}<br>
-<img src="{{project.image.url}}" height="100">
-{% if project.url %}
-<h1><a href="{{project.liink}}">Link</a></h1>
-{% endif %}
-<!--{{project.liink}}-->
-{% endfor %}
+<div class="cards" style="display:block ruby; margin-left=20%">
+    {% for project in projects %}
+<div class="card" style="width: 18rem; margin:50px;">
+    <img class="card-img-top" src="{{project.image.url}}" alt="Card image cap">
+<!--<img  height="100">-->
+    <div class="card-body">
+    <h5 class="card-title">{{project.title}}</h5>
+    <p class="card-text">{{project.description}}</p>
+    {% if project.url %}
+        <a href="{{project.liink}}" class="btn btn-primary">Go somewhere</a>
+<!--        <h1><a >Link</a></h1>-->
+    {% endif %}
+          </div>
+</div>
+    {% endfor %}
+    </div>
+
+
+
+
+
+
+
+
 </body>
 </html>

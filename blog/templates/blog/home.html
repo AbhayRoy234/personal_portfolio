@@ -8,7 +8,7 @@
 This is the home page for blog
 {% for blogs in blog %}
 <br>
-{{blogs.title}}
+<a href="{% url 'blog:details' blogs.id %}"><h1>{{ blogs.title }}</h1></a>
 {{blogs.description}}
 {% endfor %}
 </body>
