@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+This is the home page
+{% load static %}
+<!--<img src="{% static 'portfolio/abhay_antu.jpg' %}" height="100">-->
+<img src="{% static 'portfolio/abhay_antu.jpg' %}" height="200">
+{% for project in projects %}
+<h1>{{project.title}}</h1>
+<br>{{project.description}}<br>
+<img src="{{project.image.url}}" height="100">
+{% if project.url %}
+<h1><a href="{{project.liink}}">Link</a></h1>
+{% endif %}
+<!--{{project.liink}}-->
+{% endfor %}
+</body>
+</html>
